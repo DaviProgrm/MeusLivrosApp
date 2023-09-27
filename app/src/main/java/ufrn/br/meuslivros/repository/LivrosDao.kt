@@ -9,7 +9,7 @@ import ufrn.br.meuslivros.domain.Livros
 interface LivrosDao {
 
     @Insert
-    fun inserirLivro(livrosDao: LivrosDao) : String
+    fun inserirLivro(livro: Livros)
 
     @Query("SELECT * FROM Livros")
     fun listarTodos() : List<Livros>
