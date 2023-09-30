@@ -45,6 +45,8 @@ dependencies {
 
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    implementation ("com.google.android.material:material:1.4.0")
+
 
     // To use Kotlin Symbolic Processing (KSP)
     kapt("androidx.room:room-compiler:$roomVersion")

@@ -3,7 +3,9 @@ package ufrn.br.meuslivros
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Looper
 import android.util.Log
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.room.Room
@@ -15,6 +17,9 @@ import ufrn.br.meuslivros.databinding.ActivityCadastrarBinding
 import ufrn.br.meuslivros.repository.LivrosDao
 import ufrn.br.meuslivros.domain.Livros
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.snackbar.Snackbar
+import android.os.Handler
+
 
 class Cadastrar : AppCompatActivity() {
 
@@ -61,12 +66,18 @@ class Cadastrar : AppCompatActivity() {
                     ano = ano,
                     nota = nota
                 )
-
                 livrosDao.inserirLivro(livroNovo)
-                Log.d("kkk", "Livro inserido no banco de dados: $livroNovo")
+
             }
-            finish()
+            val snackbar = Snackbar.make(binding.button3, "Livro cadastrado com sucesso!", 5000) // Define a duração em milissegundos
+            snackbar.show()
+
+            Handler(Looper.getMainLooper()).postDelayed({
+
+                finish()
+            }, 1000) // Define o mesmo tempo de duração aqui (em milissegundos)
+        }
+
         }
     }
 
-}
