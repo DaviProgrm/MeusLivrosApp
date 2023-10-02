@@ -1,12 +1,10 @@
 package ufrn.br.meuslivros
 
-import ufrn.br.meuslivros.Cadastrar
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.google.android.material.snackbar.Snackbar
-import ufrn.br.meuslivros.databinding.ActivityCadastrarBinding
 import ufrn.br.meuslivros.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
