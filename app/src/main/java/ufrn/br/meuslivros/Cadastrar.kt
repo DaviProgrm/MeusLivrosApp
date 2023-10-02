@@ -4,14 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
-import android.util.Log
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.room.Room
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import ufrn.br.meuslivros.database.AppDatabase
 import ufrn.br.meuslivros.databinding.ActivityCadastrarBinding
 import ufrn.br.meuslivros.repository.LivrosDao
@@ -39,21 +36,21 @@ class Cadastrar : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Inicialize a instância do banco de dados (Room)
+
         val db =
             Room.databaseBuilder(applicationContext, AppDatabase::class.java, "livros-db").build()
         livrosDao = db.livrosDao()
 
-        // Chame a função configuraBotaoSalvar aqui
+
         configuraBotaoSalvar()
     }
 
-    // Mova a função configuraBotaoSalvar para fora do método onCreate
+
     private fun configuraBotaoSalvar() {
         val botaoSalvar = binding.button3
 
         botaoSalvar.setOnClickListener {
-            // Use lifecycleScope.launch para iniciar uma coroutine em Dispatchers.IO
+
             lifecycleScope.launch(Dispatchers.IO) {
                 val titulo = binding.editTextText.text.toString()
                 val autor = binding.editTextText2.text.toString()
@@ -69,13 +66,13 @@ class Cadastrar : AppCompatActivity() {
                 livrosDao.inserirLivro(livroNovo)
 
             }
-            val snackbar = Snackbar.make(binding.button3, "Livro cadastrado com sucesso!", 5000) // Define a duração em milissegundos
+            val snackbar = Snackbar.make(binding.button3, "Livro cadastrado com sucesso!", 5000)
             snackbar.show()
 
             Handler(Looper.getMainLooper()).postDelayed({
 
                 finish()
-            }, 1000) // Define o mesmo tempo de duração aqui (em milissegundos)
+            }, 1000)
         }
 
         }

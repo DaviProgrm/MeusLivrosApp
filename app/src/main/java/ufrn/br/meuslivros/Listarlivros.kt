@@ -26,7 +26,7 @@ class Listarlivros : AppCompatActivity() {
         val db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "livros-db").build()
         livrosDao = db.livrosDao()
 
-        // Chame a função para listar os livros
+
         listarLivros()
         binding.button5.setOnClickListener {
             if (livroIndex > 0) {
@@ -46,7 +46,6 @@ class Listarlivros : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.IO) {
             val livros = livrosDao.listarTodos()
 
-            // Atualize a interface do usuário na thread principal
             launch(Dispatchers.Main) {
                 exibirListaDeLivros(livros)
             }

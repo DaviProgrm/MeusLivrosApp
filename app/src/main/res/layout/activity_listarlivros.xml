@@ -99,7 +99,7 @@
             app:layout_constraintHorizontal_bias="0.141"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/toolbar3"
-            app:layout_constraintVertical_bias="0.331" />
+            app:layout_constraintVertical_bias="0.311" />
 
         <TextView
             android:id="@+id/textView15"
@@ -111,7 +111,7 @@
             app:layout_constraintHorizontal_bias="0.141"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.403" />
+            app:layout_constraintVertical_bias="0.379" />
 
         <TextView
             android:id="@+id/textView8"
